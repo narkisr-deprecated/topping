@@ -1,4 +1,4 @@
-(defproject topping "0.0.1-SNAPSHOT"
+(defproject topping "0.0.1"
   :description "A remote deployment/execution plugin that uses supernal"
   :url ""
   :license {:name "Apache License, Version 2.0" :url "http://www.apache.org/licenses/LICENSE-2.0.html"} 
