@@ -7,7 +7,7 @@ A lein plugin to deploy code into remote machines based upon the [supernal](http
 Add to your project.clj plugins section:
 
 ```clojure
-  [topping "0.0.1"]
+  [topping "0.0.2"]
 ```
 
 The plugin takes as a parameter the role that will be deployed:
