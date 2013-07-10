@@ -1,25 +1,52 @@
-# topping
+# Intro
 
-A Leiningen plugin to do many wonderful things.
+A lein plugin to deploy code into remote machines based upon the [supernal](https://github.com/celestial-ops/supernal) project.
 
-## Usage
+# Usage
 
-FIXME: Use this for user-level plugins:
+Add to your project.clj plugins section:
 
-Put `[topping "0.1.0-SNAPSHOT"]` into the `:plugins` vector of your
-`:user` profile, or if you are on Leiningen 1.x do `lein plugin install
-topping 0.1.0-SNAPSHOT`.
+```clojure
+  [topping "0.0.1"]
+```
 
-FIXME: Use this for project-level plugins:
+The plugin takes as a parameter the role that will be deployed:
 
-Put `[topping "0.1.0-SNAPSHOT"]` into the `:plugins` vector of your project.clj.
+```bash 
+ $ lein topping web
+```
 
-FIXME: and add an example usage that actually makes sense:
+Now configure it:
 
-    $ lein topping
+```clojure 
+ 
+ :topping {
+    :service "celestial" 
+    :app {:app-name "celestial" :src "target/celestial-0.1.4.jar"}
+    :env {:roles {:web #{{:host "192.168.5.6" :user "vagrant" :sudo true}}}}
+  }
 
-## License
+```
 
-Copyright © 2013 FIXME
+Field    | Description
+---------|-------------
+service  | The service that will be restarted after each deployment
+app-name | Application name the denotes deployment path (/u/apps/app-name
+src      | The deployed artifact (usually a jar file)
+roles    | Mapping between roles and hosts
 
-Distributed under the Eclipse Public License, the same as Clojure.
+# Copyright and license
+
+Copyright [2013] [Ronen Narkis]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+  [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
