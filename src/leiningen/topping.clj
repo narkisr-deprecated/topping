@@ -17,8 +17,8 @@
     (debug "stopping service" remote)
     (run (<< "service ~{@service*} start")))) 
 
-(defn topping [{:keys [topping] :as project} & args]
+(defn topping [{:keys [topping] :as project} & [role]]
   (let [{:keys [app env service]} topping]
      (reset! service* service) 
-     (execute basic-deploy app :web :env env)))
+     (execute basic-deploy app (keyword role) :env env)))
 
