@@ -35,6 +35,21 @@ app-name | Application name the denotes deployment path (/u/apps/app-name).
 src      | The deployed artifact (usually a jar file).
 roles    | Mapping between roles and hosts.
 
+
+Also make sure to setup key based authentication:
+
+```bash 
+ # user should match configuration
+ $ ssh-copy-id user@target
+```
+
+And password-less sudo:
+
+```bash 
+  # in your /etc/sudoers
+  username ALL=(ALL) NOPASSWD: ALL
+```
+
 # Copyright and license
 
 Copyright [2013] [Ronen Narkis]
