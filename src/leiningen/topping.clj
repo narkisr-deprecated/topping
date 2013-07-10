@@ -11,11 +11,14 @@
 
   (task start
     (debug "starting service" remote)
-    (run (<< "service ~{@service*} stop")))
+    (run (<< "service ~{@service*} start")))
 
   (task stop
     (debug "stopping service" remote)
-    (run (<< "service ~{@service*} start")))) 
+    (try 
+      (run (<< "service ~{@service*} stop"))
+      (catch Exception e 
+        (warn "Failed to stop service, assuming it wasn't running."))))) 
 
 (defn topping [{:keys [topping] :as project} & [role]]
   (let [{:keys [app env service]} topping]

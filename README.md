@@ -43,11 +43,11 @@ Also make sure to setup key based authentication:
  $ ssh-copy-id user@target
 ```
 
-And password-less sudo:
+And password-less sudo for service, mkdir etc:
 
 ```bash 
-  # in your /etc/sudoers
-  username ALL=(ALL) NOPASSWD: ALL
+  # in your /etc/sudoers bellow other statments (last match wins)
+  user ALL=(ALL) NOPASSWD: /usr/sbin/service , /bin/mkdir, /bin/chown, /u/apps, /bin/rm -f /u/apps/celestial/current, /bin/ln
 ```
 
 # Copyright and license
