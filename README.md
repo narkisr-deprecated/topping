@@ -20,20 +20,20 @@ Now configure it:
 
 ```clojure 
  
- :topping {
-    :service "celestial" 
-    :app {:app-name "celestial" :src "target/celestial-0.1.4.jar"}
-    :env {:roles {:web #{{:host "192.168.5.6" :user "vagrant" :sudo true}}}}
-  }
+:topping {
+   :service "celestial" 
+   :app {:app-name "celestial" :src "target/celestial-0.1.4.jar"}
+   :env {:roles {:web #{{:host "192.168.5.6" :user "vagrant" :sudo true}}}}
+}
 
 ```
 
 Field    | Description
 ---------|-------------
-service  | The service that will be restarted after each deployment
-app-name | Application name the denotes deployment path (/u/apps/app-name
-src      | The deployed artifact (usually a jar file)
-roles    | Mapping between roles and hosts
+service  | The service that will be restarted after each deployment.
+app-name | Application name the denotes deployment path (/u/apps/app-name).
+src      | The deployed artifact (usually a jar file).
+roles    | Mapping between roles and hosts.
 
 # Copyright and license
 
